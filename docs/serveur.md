@@ -1,4 +1,4 @@
-# Class ENetServer
+# Class
 
 The ENetServer class is responsible for creating and managing an ENet server using the ENet library for network communication.
 
