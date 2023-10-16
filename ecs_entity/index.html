@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/ecs_entity/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>ECS Entity - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Documentation for Entity", url: "#_top", children: [
+              {title: "Description", url: "#description" },
+              {title: "Public Members", url: "#public-members" },
+              {title: "Protected Members", url: "#protected-members" },
+              {title: "Private Members", url: "#private-members" },
+          ]},
+          {title: "Documentation for EntityManager", url: "#documentation-for-entitymanager", children: [
+              {title: "Description", url: "#description_1" },
+              {title: "Public Members", url: "#public-members_1" },
+              {title: "Protected Members", url: "#protected-members_1" },
+              {title: "Private Members", url: "#private-members_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ecs_system/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ecs_system/" class="btn btn-xs btn-link">
+        ECS System
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ecs_component/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ecs_component/" class="btn btn-xs btn-link">
+        ECS Component
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="documentation-for-entity">Documentation for Entity</h1>
+<h2 id="description">Description</h2>
+<p>The <code>Entity</code> class represents an entity in a game or simulation. It is a container for components that define the properties and behaviors of the entity. Each entity has a unique identifier.</p>
+<h2 id="public-members">Public Members</h2>
+<ul>
+<li><code>Entity(size_t id) noexcept</code>: Constructor that creates an entity with the specified identifier.</li>
+<li><code>~Entity() noexcept</code>: Destructor.</li>
+<li><code>size_t getIdex() noexcept</code>: Returns the identifier of the entity.</li>
+<li><code>std::vector&lt;std::shared_ptr&lt;IComponent&gt;&gt;&amp; getEntityComponent() noexcept</code>: Returns a reference to the vector of components associated with the entity.</li>
+<li><code>template &lt;typename T&gt; void addComponent(T&amp; component) noexcept</code>: Adds a component of type <code>T</code> to the entity.</li>
+<li><code>template &lt;typename T&gt; T* getComponent() noexcept</code>: Returns a pointer to the component of type <code>T</code> associated with the entity.</li>
+<li><code>template &lt;typename T&gt; int EntityhaveComponent() noexcept</code>: Checks if the entity has a component of type <code>T</code>.</li>
+<li><code>template &lt;typename T, typename... Args&gt; bool hasComponents() noexcept</code>: Checks if the entity has components of types <code>T</code> and <code>Args...</code>.</li>
+</ul>
+<h2 id="protected-members">Protected Members</h2>
+<p>None.</p>
+<h2 id="private-members">Private Members</h2>
+<ul>
+<li><code>std::vector&lt;std::shared_ptr&lt;IComponent&gt;&gt; _component</code>: A vector of shared pointers to the components associated with the entity.</li>
+<li><code>size_t _id</code>: The identifier of the entity.</li>
+</ul>
+<hr />
+<h1 id="documentation-for-entitymanager">Documentation for EntityManager</h1>
+<h2 id="description_1">Description</h2>
+<p>The <code>EntityManager</code> class manages a collection of entities. It provides functionality for creating, accessing, and removing entities.</p>
+<h2 id="public-members_1">Public Members</h2>
+<ul>
+<li><code>EntityManager() noexcept</code>: Default constructor.</li>
+<li><code>~EntityManager() noexcept</code>: Destructor.</li>
+<li><code>std::shared_ptr&lt;Entity&gt; CreateEntity() noexcept</code>: Creates a new entity and returns a shared pointer to it.</li>
+<li><code>std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;&amp; getEntity() noexcept</code>: Returns a reference to the vector of entities managed by the entity manager.</li>
+<li><code>std::shared_ptr&lt;Entity&gt; findEntity(size_t id) noexcept</code>: Finds an entity with the specified identifier and returns a shared pointer to it.</li>
+<li><code>int eraseEntity(size_t id) noexcept</code>: Removes an entity with the specified identifier from the entity manager.</li>
+</ul>
+<h2 id="protected-members_1">Protected Members</h2>
+<p>None.</p>
+<h2 id="private-members_1">Private Members</h2>
+<ul>
+<li><code>std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt; _entity</code>: A vector of shared pointers to the entities managed by the entity manager.</li>
+</ul>
+<hr />
+<p>Please note that this documentation is based on the provided code snippets and may not cover all the details or context of the entire system. It is recommended to refer to the actual code implementation and any associated comments for a complete understanding.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ecs_system/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ecs_system/" class="btn btn-xs btn-link">
+        ECS System
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ecs_component/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ecs_component/" class="btn btn-xs btn-link">
+        ECS Component
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

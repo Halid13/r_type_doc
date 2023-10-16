@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/ecs_system/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>ECS System - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Documentation for SystemBehavior", url: "#_top", children: [
+              {title: "Description", url: "#description" },
+              {title: "Public Members", url: "#public-members" },
+              {title: "Protected Members", url: "#protected-members" },
+              {title: "Private Members", url: "#private-members" },
+          ]},
+          {title: "Documentation for SystemDraw", url: "#documentation-for-systemdraw", children: [
+              {title: "Description", url: "#description_1" },
+              {title: "Public Members", url: "#public-members_1" },
+              {title: "Protected Members", url: "#protected-members_1" },
+              {title: "Private Members", url: "#private-members_1" },
+          ]},
+          {title: "Documentation for SystemMouvement", url: "#documentation-for-systemmouvement", children: [
+              {title: "Description", url: "#description_2" },
+              {title: "Public Members", url: "#public-members_2" },
+              {title: "Protected Members", url: "#protected-members_2" },
+              {title: "Private Members", url: "#private-members_2" },
+          ]},
+          {title: "Documentation for SystemMusic", url: "#documentation-for-systemmusic", children: [
+              {title: "Description", url: "#description_3" },
+              {title: "Public Members", url: "#public-members_3" },
+              {title: "Protected Members", url: "#protected-members_3" },
+              {title: "Private Members", url: "#private-members_3" },
+          ]},
+          {title: "Documentation for SystemSound", url: "#documentation-for-systemsound", children: [
+              {title: "Description", url: "#description_4" },
+              {title: "Public Members", url: "#public-members_4" },
+              {title: "Protected Members", url: "#protected-members_4" },
+              {title: "Private Members", url: "#private-members_4" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../rfcprotocole/" class="btn btn-xs btn-link">
+        Protocole RFC
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ecs_entity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ecs_entity/" class="btn btn-xs btn-link">
+        ECS Entity
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="documentation-for-systembehavior">Documentation for SystemBehavior</h1>
+<h2 id="description">Description</h2>
+<p>The <code>SystemBehavior</code> class is a component that represents a behavior system in a game or simulation. It inherits from the <code>IComponent</code> interface. It provides functionality for managing and executing behaviors associated with entities.</p>
+<h2 id="public-members">Public Members</h2>
+<ul>
+<li><code>SystemBehavior(EntityManager *entity)</code>: Constructor that initializes the behavior system with a pointer to the <code>EntityManager</code>.</li>
+<li><code>~SystemBehavior()</code>: Destructor.</li>
+<li><code>void loop()</code>: Performs the behavior system's main loop, where behaviors are executed.</li>
+</ul>
+<h2 id="protected-members">Protected Members</h2>
+<p>None.</p>
+<h2 id="private-members">Private Members</h2>
+<ul>
+<li><code>EntityManager *_entityManager</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the behavior system.</li>
+</ul>
+<hr />
+<h1 id="documentation-for-systemdraw">Documentation for SystemDraw</h1>
+<h2 id="description_1">Description</h2>
+<p>The <code>SystemDraw</code> class is responsible for drawing entities in a game or simulation. It provides functionality for rendering entities with visual components.</p>
+<h2 id="public-members_1">Public Members</h2>
+<ul>
+<li><code>SystemDraw(EntityManager *entity)</code>: Constructor that initializes the drawing system with a pointer to the <code>EntityManager</code>.</li>
+<li><code>~SystemDraw()</code>: Destructor.</li>
+<li><code>void loop()</code>: Performs the drawing system's main loop, where entities are rendered.</li>
+<li><code>void setWindow(Window* window) noexcept</code>: Sets the window in which the entities will be drawn.</li>
+</ul>
+<h2 id="protected-members_1">Protected Members</h2>
+<p>None.</p>
+<h2 id="private-members_1">Private Members</h2>
+<ul>
+<li><code>Window *_window</code>: A pointer to the window where entities will be drawn.</li>
+<li><code>EntityManager *_entity</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the drawing system.</li>
+</ul>
+<hr />
+<h1 id="documentation-for-systemmouvement">Documentation for SystemMouvement</h1>
+<h2 id="description_2">Description</h2>
+<p>The <code>SystemMouvement</code> class is responsible for handling movement-related logic in a game or simulation. It provides functionality for updating the positions of entities with movement components.</p>
+<h2 id="public-members_2">Public Members</h2>
+<ul>
+<li><code>SystemMouvement(EntityManager *entity)</code>: Constructor that initializes the movement system with a pointer to the <code>EntityManager</code>.</li>
+<li><code>~SystemMouvement()</code>: Destructor.</li>
+<li><code>void loop()</code>: Performs the movement system's main loop, where entity positions are updated.</li>
+</ul>
+<h2 id="protected-members_2">Protected Members</h2>
+<p>None.</p>
+<h2 id="private-members_2">Private Members</h2>
+<ul>
+<li><code>EntityManager *_entity</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the movement system.</li>
+</ul>
+<hr />
+<h1 id="documentation-for-systemmusic">Documentation for SystemMusic</h1>
+<h2 id="description_3">Description</h2>
+<p>The <code>SystemMusic</code> class is a component that represents a music system in a game or simulation. It inherits from the <code>IComponent</code> interface. It provides functionality for managing and playing music associated with entities.</p>
+<h2 id="public-members_3">Public Members</h2>
+<ul>
+<li><code>SystemMusic(EntityManager *entity)</code>: Constructor that initializes the music system with a pointer to the <code>EntityManager</code>.</li>
+<li><code>~SystemMusic()</code>: Destructor.</li>
+<li><code>void loop()</code>: Performs the music system's main loop, where music is played.</li>
+</ul>
+<h2 id="protected-members_3">Protected Members</h2>
+<p>None.</p>
+<h2 id="private-members_3">Private Members</h2>
+<ul>
+<li><code>EntityManager *_entitymanager</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the music system.</li>
+</ul>
+<hr />
+<h1 id="documentation-for-systemsound">Documentation for SystemSound</h1>
+<h2 id="description_4">Description</h2>
+<p>The <code>SystemSound</code> class is responsible for handling sound-related logic in a game or simulation. It provides functionality for playing sounds associated with entities.</p>
+<h2 id="public-members_4">Public Members</h2>
+<ul>
+<li><code>SystemSound(EntityManager *entitymanager)</code>: Constructor that initializes the sound system with a pointer to the <code>EntityManager</code>.</li>
+<li><code>~SystemSound()</code>: Destructor.</li>
+<li><code>void loop()</code>: Performs the sound system's main loop, where sounds are played.</li>
+<li><code>void setSoundManager(SoundManager* soundManager) noexcept</code>: Sets the sound manager responsible for playing the sounds.</li>
+</ul>
+<h2 id="protected-members_4">Protected Members</h2>
+<p>None.</p>
+<h2 id="private-members_4">Private Members</h2>
+<ul>
+<li><code>EntityManager *_entitymanager</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the sound system.</li>
+<li><code>SoundManager  *soundManager_</code>: A pointer to the sound manager responsible for playing the sounds.</li>
+</ul>
+<hr />
+<p>Please note that this documentation is based on the provided code snippets and may not cover all the details or context of the entire system. It is recommended to refer to the actual code implementation and any associated comments for a complete understanding.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../rfcprotocole/" class="btn btn-xs btn-link">
+        Protocole RFC
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ecs_entity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ecs_entity/" class="btn btn-xs btn-link">
+        ECS Entity
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
