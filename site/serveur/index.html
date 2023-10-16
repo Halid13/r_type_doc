@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/serveur/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>ENet Server - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Class ServerENet", url: "#_top", children: [
+              {title: "Methods", url: "#methods" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../client/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../client/" class="btn btn-xs btn-link">
+        ENet Client
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../about/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../about/" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="class-serverenet">Class ServerENet</h1>
+<p>The ENetServer class is responsible for creating and managing an ENet server using the ENet library for network communication.</p>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>ENetServer()</li>
+</ul>
+<p>The constructor of the ENetServer class initializes the ENet library by calling the enet_initialize() function. If initialization fails, an error is printed, and the program exits with a EXIT_FAILURE exit code.
+* ~ENetServer()</p>
+<p>The destructor of the ENetServer class releases the resources used by the ENet library by calling the enet_deinitialize() function.
+startServer(int port)</p>
+<p>The startServer method starts the ENet server. It takes an integer port parameter that specifies the port number on which the server should listen for incoming connections.</p>
+<p>The method performs the following operations:</p>
+<pre><code>Initializes an ENetAddress structure with the server's IP address (in this example, "10.50.6.84") and the port number passed as a parameter.
+Creates an ENet host using the enet_host_create() function with the address and additional parameters (32 channels, 2 incoming connections, no outgoing bandwidth limit, no incoming bandwidth limit).
+If the host creation fails, an error is printed, and the program exits with a EXIT_FAILURE exit code.
+</code></pre>
+<ul>
+<li>run()</li>
+</ul>
+<p>The run method is responsible for the main execution of the server. It uses an infinite while loop to wait for and handle network events.</p>
+<p>The method performs the following operations:</p>
+<pre><code>Waits for a network event using the enet_host_service() function.
+If an event is received, it is processed based on its type:
+    ENET_EVENT_TYPE_CONNECT: Prints a message indicating that a client has connected.
+    ENET_EVENT_TYPE_RECEIVE: Prints a message indicating that a packet has been received from the client, then destroys the packet using the enet_packet_destroy() function.
+    ENET_EVENT_TYPE_DISCONNECT: Prints a message indicating that a client has disconnected.
+The loop continues to wait for new events.
+</code></pre>
+<ul>
+<li>stopServer()</li>
+</ul>
+<p>The stopServer method stops the ENet server by destroying the ENet host using the enet_host_destroy() function.</p>
+<ul>
+<li>main() function</li>
+</ul>
+<p>The main function is the entry point of the program. It creates an instance of the ENetServer class, starts the server by calling the startServer() method with the port number passed as a command-line argument (av[1]), and runs the server by calling the run() method. Finally, the main function returns 0 to indicate successful execution.</p>
+<p>Please note that to use this code, you need to include the "Serveur.hpp" header file and the ENet library using #include <enet/enet.h>. Also, make sure you have the ENet library installed and properly configured.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../client/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../client/" class="btn btn-xs btn-link">
+        ENet Client
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../about/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../about/" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
