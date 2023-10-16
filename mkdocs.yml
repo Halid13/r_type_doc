@@ -5,13 +5,13 @@ nav:
   - Home: present.md
   - Tools Reference: toolreference.md
   - About: about.md
-  - Index: index.md
-  - Protocole RFC: rfcprotocole.md
   - ENet Server: serveur.md
   - ENet Client: client.md
-  - Lib Client: lib_client.md
-  - Game server: game_server.md
-  - Tool: tool.md
   - ECS Component: ecs_component.md
   - ECS Entity: ecs_entity.md
   - ECS System: ecs_system.md
+  - Protocole RFC: rfcprotocole.md
+  - Game server: game_server.md
+  - Tool: tool.md
+  - Lib Client: lib_client.md
+  - Index: index.md
