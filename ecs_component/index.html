@@ -32,35 +32,15 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Documentation for ComponentBehavior", url: "#_top", children: [
-              {title: "Description", url: "#description" },
-              {title: "Public Members", url: "#public-members" },
-              {title: "Protected Members", url: "#protected-members" },
-              {title: "Private Members", url: "#private-members" },
+          {title: "ComponentBehavior", url: "#_top", children: [
           ]},
-          {title: "Documentation for ComponentDraw", url: "#documentation-for-componentdraw", children: [
-              {title: "Description", url: "#description_1" },
-              {title: "Public Members", url: "#public-members_1" },
-              {title: "Protected Members", url: "#protected-members_1" },
-              {title: "Private Members", url: "#private-members_1" },
+          {title: "ComponentDraw", url: "#componentdraw", children: [
           ]},
-          {title: "Documentation for ComponentInput", url: "#documentation-for-componentinput", children: [
-              {title: "Description", url: "#description_2" },
-              {title: "Public Members", url: "#public-members_2" },
-              {title: "Protected Members", url: "#protected-members_2" },
-              {title: "Private Members", url: "#private-members_2" },
+          {title: "ComponentInput", url: "#componentinput", children: [
           ]},
-          {title: "Documentation for ComponentMouvement", url: "#documentation-for-componentmouvement", children: [
-              {title: "Description", url: "#description_3" },
-              {title: "Public Members", url: "#public-members_3" },
-              {title: "Protected Members", url: "#protected-members_3" },
-              {title: "Private Members", url: "#private-members_3" },
+          {title: "ComponentMouvement", url: "#componentmouvement", children: [
           ]},
-          {title: "Documentation for ComponentPosition", url: "#documentation-for-componentposition", children: [
-              {title: "Description", url: "#description_4" },
-              {title: "Public Members", url: "#public-members_4" },
-              {title: "Protected Members", url: "#protected-members_4" },
-              {title: "Private Members", url: "#private-members_4" },
+          {title: "ComponentPosition", url: "#componentposition", children: [
           ]},
         ];
 
@@ -97,10 +77,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../client/" class="btn btn-xs btn-default pull-left">
+      <a href=".." class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../client/" class="btn btn-xs btn-link">
-        ENet Client
+        Previous</a><a href=".." class="btn btn-xs btn-link">
+        Index
       </a>
     </div>
     
@@ -108,27 +88,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="documentation-for-componentbehavior">Documentation for ComponentBehavior</h1>
-<h2 id="description">Description</h2>
+    <h1 id="componentbehavior">ComponentBehavior</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>ComponentBehavior</code> class is a derived class of <code>IComponent</code> and represents the behavior component of an entity. It provides functionality for updating the entity's behavior.</p>
-<h2 id="public-members">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>ComponentBehavior()</code>: Default constructor.</li>
 <li><code>~ComponentBehavior()</code>: Default destructor.</li>
 <li><code>void setupdate(std::function&lt;void(Entity* entity)&gt; update)</code>: Sets the update function for the component.</li>
 <li><code>void Update(Entity* entity)</code>: Updates the behavior of the entity.</li>
 </ul>
-<h2 id="protected-members">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>std::function&lt;void(Entity* self)&gt; _update_</code>: Function object representing the update function for the component.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-componentdraw">Documentation for ComponentDraw</h1>
-<h2 id="description_1">Description</h2>
+<h1 id="componentdraw">ComponentDraw</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>ComponentDraw</code> class is a derived class of <code>IComponent</code> and represents the drawing component of an entity. It provides functionality for managing the position, size, scale, and texture ID of the entity's sprite.</p>
-<h2 id="public-members_1">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>ComponentDraw(int X, int Y, int width, int height, int textureId)</code>: Constructor that initializes the drawing component with the specified position, size, and texture ID.</li>
 <li><code>~ComponentDraw()</code>: Destructor.</li>
@@ -142,9 +120,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><code>void setTextureId(int textureId) noexcept</code>: Sets the texture ID of the drawing component.</li>
 <li><code>Sprite&amp; getSprite() noexcept</code>: Returns a reference to the sprite associated with the drawing component.</li>
 </ul>
-<h2 id="protected-members_1">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_1">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>int _X</code>: The X coordinate of the drawing component.</li>
 <li><code>int _Y</code>: The Y coordinate of the drawing component.</li>
@@ -156,27 +132,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><code>Sprite sprite_</code>: The sprite associated with the drawing component.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-componentinput">Documentation for ComponentInput</h1>
-<h2 id="description_2">Description</h2>
+<h1 id="componentinput">ComponentInput</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>ComponentInput</code> class is a derived class of <code>IComponent</code> and represents the input component of an entity. It provides functionality for managing input values associated with the entity.</p>
-<h2 id="public-members_2">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>ComponentInput()</code>: Default constructor.</li>
 <li><code>~ComponentInput()</code>: Default destructor.</li>
 <li><code>void addInput(int input) noexcept</code>: Adds an input value to the component.</li>
 <li><code>int getInput() noexcept</code>: Returns the input value associated with the component.</li>
 </ul>
-<h2 id="protected-members_2">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_2">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>std::vector&lt;int&gt; _input</code>: A vector storing the input values associated with the component.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-componentmouvement">Documentation for ComponentMouvement</h1>
-<h2 id="description_3">Description</h2>
+<h1 id="componentmouvement">ComponentMouvement</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>ComponentMouvement</code> class is a derived class of <code>IComponent</code> and represents the movement component of an entity. It provides functionality for managing the position and speed of the entity.</p>
-<h2 id="public-members_3">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>ComponentMouvement(int X, int Y, double speed)</code>: Constructor that initializes the movement component with the specified position and speed.</li>
 <li><code>~ComponentMouvement()</code>: Destructor.</li>
@@ -186,32 +160,28 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><code>void setY(int Y) noexcept</code>: Sets the Y coordinate of the movement component.</li>
 <li><code>void setSpeed(double speed) noexcept</code>: Sets the speed of the movement component.</li>
 </ul>
-<h2 id="protected-members_3">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_3">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>int _X</code>: The X coordinate of the movement component.</li>
 <li><code>int _Y</code>: The Y coordinate of the movement component.</li>
 <li><code>double _speed</code>: The speed of the movement component.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-componentposition">Documentation for ComponentPosition</h1>
-<h2 id="description_4">Description</h2>
+<h1 id="componentposition">ComponentPosition</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>ComponentPosition</code> class is a derived class of <code>IComponent</code> and represents the position component of an entity. It provides functionality for managing the position of the entity.</p>
-<h2 id="public-members_4">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>ComponentPosition(int x, int y) noexcept</code>: Constructor that initializes the position component with the specified coordinates.</li>
 <li><code>~ComponentPosition() noexcept</code>: Destructor.</li>
 <li><code>std::tuple&lt;int, int&gt; getXandY() const noexcept</code>: Returns the X and Y coordinates of the position component.</li>
 <li><code>void setXandY(int x, int y) noexcept</code>: Sets the X and Y coordinates of the position component.</li>
 </ul>
-<h2 id="protected-members_4">Protected Members</h2>
+<p><strong><em>Protected Members</em></strong></p>
 <ul>
 <li><code>int _x</code>: The X coordinate of the position component.</li>
 <li><code>int _y</code>: The Y coordinate of the position component.</li>
 </ul>
-<h2 id="private-members_4">Private Members</h2>
-<p>None.</p>
 <hr />
 <p>Please note that this documentation is based on the provided code snippets and may not cover all the details or context of the entire system. It is recommended to refer to the actual code implementation and any associated comments for a complete understanding.</p>
 
@@ -236,10 +206,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../client/" class="btn btn-xs btn-default pull-left">
+      <a href=".." class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../client/" class="btn btn-xs btn-link">
-        ENet Client
+        Previous</a><a href=".." class="btn btn-xs btn-link">
+        Index
       </a>
     </div>
     

@@ -32,35 +32,15 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Documentation for SystemBehavior", url: "#_top", children: [
-              {title: "Description", url: "#description" },
-              {title: "Public Members", url: "#public-members" },
-              {title: "Protected Members", url: "#protected-members" },
-              {title: "Private Members", url: "#private-members" },
+          {title: "SystemBehavior", url: "#_top", children: [
           ]},
-          {title: "Documentation for SystemDraw", url: "#documentation-for-systemdraw", children: [
-              {title: "Description", url: "#description_1" },
-              {title: "Public Members", url: "#public-members_1" },
-              {title: "Protected Members", url: "#protected-members_1" },
-              {title: "Private Members", url: "#private-members_1" },
+          {title: "SystemDraw", url: "#systemdraw", children: [
           ]},
-          {title: "Documentation for SystemMouvement", url: "#documentation-for-systemmouvement", children: [
-              {title: "Description", url: "#description_2" },
-              {title: "Public Members", url: "#public-members_2" },
-              {title: "Protected Members", url: "#protected-members_2" },
-              {title: "Private Members", url: "#private-members_2" },
+          {title: "SystemMouvement", url: "#systemmouvement", children: [
           ]},
-          {title: "Documentation for SystemMusic", url: "#documentation-for-systemmusic", children: [
-              {title: "Description", url: "#description_3" },
-              {title: "Public Members", url: "#public-members_3" },
-              {title: "Protected Members", url: "#protected-members_3" },
-              {title: "Private Members", url: "#private-members_3" },
+          {title: "SystemMusic", url: "#systemmusic", children: [
           ]},
-          {title: "Documentation for SystemSound", url: "#documentation-for-systemsound", children: [
-              {title: "Description", url: "#description_4" },
-              {title: "Public Members", url: "#public-members_4" },
-              {title: "Protected Members", url: "#protected-members_4" },
-              {title: "Private Members", url: "#private-members_4" },
+          {title: "SystemSound", url: "#systemsound", children: [
           ]},
         ];
 
@@ -87,12 +67,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-right">
+      <a href="../game_server/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../rfcprotocole/" class="btn btn-xs btn-link">
-        Protocole RFC
+      <a href="../game_server/" class="btn btn-xs btn-link">
+        Game Serveur
       </a>
     </div>
     
@@ -108,85 +88,75 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="documentation-for-systembehavior">Documentation for SystemBehavior</h1>
-<h2 id="description">Description</h2>
+    <h1 id="systembehavior">SystemBehavior</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>SystemBehavior</code> class is a component that represents a behavior system in a game or simulation. It inherits from the <code>IComponent</code> interface. It provides functionality for managing and executing behaviors associated with entities.</p>
-<h2 id="public-members">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>SystemBehavior(EntityManager *entity)</code>: Constructor that initializes the behavior system with a pointer to the <code>EntityManager</code>.</li>
 <li><code>~SystemBehavior()</code>: Destructor.</li>
 <li><code>void loop()</code>: Performs the behavior system's main loop, where behaviors are executed.</li>
 </ul>
-<h2 id="protected-members">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>EntityManager *_entityManager</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the behavior system.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-systemdraw">Documentation for SystemDraw</h1>
-<h2 id="description_1">Description</h2>
+<h1 id="systemdraw">SystemDraw</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>SystemDraw</code> class is responsible for drawing entities in a game or simulation. It provides functionality for rendering entities with visual components.</p>
-<h2 id="public-members_1">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>SystemDraw(EntityManager *entity)</code>: Constructor that initializes the drawing system with a pointer to the <code>EntityManager</code>.</li>
 <li><code>~SystemDraw()</code>: Destructor.</li>
 <li><code>void loop()</code>: Performs the drawing system's main loop, where entities are rendered.</li>
 <li><code>void setWindow(Window* window) noexcept</code>: Sets the window in which the entities will be drawn.</li>
 </ul>
-<h2 id="protected-members_1">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_1">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>Window *_window</code>: A pointer to the window where entities will be drawn.</li>
 <li><code>EntityManager *_entity</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the drawing system.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-systemmouvement">Documentation for SystemMouvement</h1>
-<h2 id="description_2">Description</h2>
+<h1 id="systemmouvement">SystemMouvement</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>SystemMouvement</code> class is responsible for handling movement-related logic in a game or simulation. It provides functionality for updating the positions of entities with movement components.</p>
-<h2 id="public-members_2">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>SystemMouvement(EntityManager *entity)</code>: Constructor that initializes the movement system with a pointer to the <code>EntityManager</code>.</li>
 <li><code>~SystemMouvement()</code>: Destructor.</li>
 <li><code>void loop()</code>: Performs the movement system's main loop, where entity positions are updated.</li>
 </ul>
-<h2 id="protected-members_2">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_2">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>EntityManager *_entity</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the movement system.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-systemmusic">Documentation for SystemMusic</h1>
-<h2 id="description_3">Description</h2>
+<h1 id="systemmusic">SystemMusic</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>SystemMusic</code> class is a component that represents a music system in a game or simulation. It inherits from the <code>IComponent</code> interface. It provides functionality for managing and playing music associated with entities.</p>
-<h2 id="public-members_3">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>SystemMusic(EntityManager *entity)</code>: Constructor that initializes the music system with a pointer to the <code>EntityManager</code>.</li>
 <li><code>~SystemMusic()</code>: Destructor.</li>
 <li><code>void loop()</code>: Performs the music system's main loop, where music is played.</li>
 </ul>
-<h2 id="protected-members_3">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_3">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>EntityManager *_entitymanager</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the music system.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-systemsound">Documentation for SystemSound</h1>
-<h2 id="description_4">Description</h2>
+<h1 id="systemsound">SystemSound</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>SystemSound</code> class is responsible for handling sound-related logic in a game or simulation. It provides functionality for playing sounds associated with entities.</p>
-<h2 id="public-members_4">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>SystemSound(EntityManager *entitymanager)</code>: Constructor that initializes the sound system with a pointer to the <code>EntityManager</code>.</li>
 <li><code>~SystemSound()</code>: Destructor.</li>
 <li><code>void loop()</code>: Performs the sound system's main loop, where sounds are played.</li>
 <li><code>void setSoundManager(SoundManager* soundManager) noexcept</code>: Sets the sound manager responsible for playing the sounds.</li>
 </ul>
-<h2 id="protected-members_4">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_4">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>EntityManager *_entitymanager</code>: A pointer to the <code>EntityManager</code> that manages the entities associated with the sound system.</li>
 <li><code>SoundManager  *soundManager_</code>: A pointer to the sound manager responsible for playing the sounds.</li>
@@ -205,12 +175,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-right">
+      <a href="../game_server/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../rfcprotocole/" class="btn btn-xs btn-link">
-        Protocole RFC
+      <a href="../game_server/" class="btn btn-xs btn-link">
+        Game Serveur
       </a>
     </div>
     

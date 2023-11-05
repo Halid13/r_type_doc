@@ -11,7 +11,7 @@
     <link rel="canonical" href="http://127.0.0.1:8000/game_server/">
     <link rel="shortcut icon" href="../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Game server - My R-Type</title>
+    <title>Game Serveur - My R-Type</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -32,9 +32,10 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "GameEngine::createPlayer", url: "#_top", children: [
-          ]},
-          {title: "GameEngine::createPlayerBullet", url: "#gameenginecreateplayerbullet", children: [
+          {title: "Server Documentation", url: "#_top", children: [
+              {title: "Public Member Functions", url: "#public-member-functions" },
+              {title: "Private Member Functions", url: "#private-member-functions" },
+              {title: "Member Variables", url: "#member-variables" },
           ]},
         ];
 
@@ -61,20 +62,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../tool/" class="btn btn-xs btn-default pull-right">
+      <a href="../lib_client/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../tool/" class="btn btn-xs btn-link">
-        Tool
+      <a href="../lib_client/" class="btn btn-xs btn-link">
+        Library Client
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-left">
+      <a href="../ecs_system/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../rfcprotocole/" class="btn btn-xs btn-link">
-        Protocole RFC
+        Previous</a><a href="../ecs_system/" class="btn btn-xs btn-link">
+        ECS System
       </a>
     </div>
     
@@ -82,39 +83,55 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h3 id="gameenginecreateplayer">GameEngine::createPlayer</h3>
-<p>int GameEngine::createPlayer(int x, int y, int nb) noexcept</p>
-<p>Description</p>
-<p>This function is responsible for creating a player entity in the game. It creates and configures the necessary components for the player entity, such as draw, position, movement, and input.
-Parameters</p>
-<pre><code>* x (int): The initial x-coordinate of the player's position.
-* y (int): The initial y-coordinate of the player's position.
-* nb (int): The player number.
-</code></pre>
-<p>Return Value</p>
-<pre><code>int: The index of the created player entity.
-</code></pre>
-<p>Example Usage</p>
-<p>int playerIndex = gameEngine.createPlayer(100, 200, 1);</p>
-<h3 id="gameenginecreateplayerbullet">GameEngine::createPlayerBullet</h3>
-<p>int GameEngine::createPlayerBullet(int x, int y, float damage, float speed, int dirX, int dirY, float size) noexcept</p>
-<p>Description</p>
-<p>This function is responsible for creating a player bullet entity in the game. It creates and configures the necessary components for the bullet entity.
-Parameters</p>
-<pre><code>* x (int): The initial x-coordinate of the bullet's position.
-* y (int): The initial y-coordinate of the bullet's position.
-* damage (float): The damage inflicted by the bullet.
-* speed (float): The speed of the bullet.
-* dirX (int): The x-direction of the bullet.
-* dirY (int): The y-direction of the bullet.
-* size (float): The size of the bullet.
-</code></pre>
-<p>Return Value</p>
-<pre><code>int: The index of the created bullet entity.
-</code></pre>
-<p>Example Usage</p>
-<p>int bulletIndex = gameEngine.createPlayerBullet(150, 300, 10.0f, 8.0f, 1, 0, 0.5f);</p>
-<p>Please note that this documentation is generated based on the provided code snippet, and the actual functionality and usage of these functions may depend on the implementation details not provided in the code.</p>
+    <h2 id="server-documentation">Server Documentation</h2>
+<p><strong><em>Introduction</em></strong></p>
+<p>The <code>Server</code> class represents a server that listens for client connections, receives and sends data to clients, and runs a game loop. It provides functions to start and stop the server, handle client communication, and manage client connections.</p>
+<h3 id="public-member-functions">Public Member Functions</h3>
+<h4 id="serveraddressport-port">Server(Address::Port port)</h4>
+<p>The constructor of the <code>Server</code> class. It creates a socket and a selector, adds the socket to the selector, and starts the game and network threads.</p>
+<p><strong>Parameters:</strong>
+- <code>port</code>: The port to listen on.</p>
+<h4 id="void-stop-noexcept">void stop() noexcept</h4>
+<p>Stops the server. It sets the <code>looping_</code> flag to false, which will cause the server to exit the game and network loops.</p>
+<h4 id="void-reset-noexcept">void reset() noexcept</h4>
+<p>Resets the server to its initial state. It sets the <code>looping_</code> flag to true.</p>
+<h4 id="void-run">void run()</h4>
+<p>The run function joins the game and network threads. It waits for both threads to finish before returning.</p>
+<h3 id="private-member-functions">Private Member Functions</h3>
+<h4 id="void-communicate-noexcept">void communicate() noexcept</h4>
+<p>The <code>communicate</code> function is responsible forhandling client communication. It waits for a client to connect, then waits for a client to send a message, then sends a message to the client, and finally checks if the client is still connected.</p>
+<h4 id="void-gameloop-noexcept">void gameLoop() noexcept</h4>
+<p>The <code>gameLoop</code> function runs the game loop and sends the data to the clients. It is responsible for updating the game state and sending the updated state to all connected clients.</p>
+<h4 id="void-receive">void receive()</h4>
+<p>The <code>receive</code> function receives data from the client and handles it. It checks if the client is known to the server, and if not, it adds the client to the list of connected clients. It then handles the data received from the client.</p>
+<h4 id="void-send-noexcept">void send() noexcept</h4>
+<p>The <code>send</code> function sends data to the clients. If there is data to send in the send queue, it sends the data to the respective clients.</p>
+<h4 id="void-sendtoclientclient-client-rawdata-blob">void sendToClient(Client&amp; client, RawData blob)</h4>
+<p>The <code>sendToClient</code> function sends a blob of data to a client. It takes the client object and the data to send as parameters.</p>
+<h4 id="rawdata-getdatafromqueueclient-client-noexcept">RawData getDataFromQueue(Client&amp; client) noexcept</h4>
+<p>The <code>getDataFromQueue</code> function retrieves the first element from the send queue of a client and returns it. It takes the client object as a parameter.</p>
+<h4 id="void-handledatareceivedinfos-infos-noexcept">void handleData(ReceivedInfos infos) noexcept</h4>
+<p>The <code>handleData</code> function handles the data received from the client. It takes a struct containing the address of the client and the received data as a parameter.</p>
+<h4 id="bool-isknownclientaddress-address-const">bool isKnownClient(Address address) const</h4>
+<p>The <code>isKnownClient</code> function checks if a client with the given address is known to the server. It returns true if the client is known, and false otherwise.</p>
+<h4 id="void-addclientaddress-address-stdchronohigh_resolution_clocktime_point-ping-noexcept">void addClient(Address address, std::chrono::high_resolution_clock::time_point ping) noexcept</h4>
+<p>The <code>addClient</code> function adds a new client to the server. It takes the address of the client and the time the client sent the ping as parameters.</p>
+<h4 id="void-removeclientaddress-clientaddress-noexcept">void removeClient(Address&amp; clientAddress) noexcept</h4>
+<p>The <code>removeClient</code> function removes a client from the server. It takes the address of the client to remove as a parameter.</p>
+<h4 id="void-areclientsconnected-noexcept">void areClientsConnected() noexcept</h4>
+<p>The <code>areClientsConnected</code> function checks if clients are still connected to the server. If a client hasn't sent a ping in a while, it sends a ping to the client. If the client doesn't respond to the ping, it disconnects the client.</p>
+<h4 id="void-updateclientstateaddress-clientaddress-bool-isping-noexcept">void updateClientState(Address&amp; clientAddress, bool isPing) noexcept</h4>
+<p>The <code>updateClientState</code> function updates the state of a client based on the received message. If the client is found in the list of clients, it sets the <code>isPingSent</code> flag to false. If the client sent a ping, it sends a pong back.</p>
+<h3 id="member-variables">Member Variables</h3>
+<p>The <code>Server</code> class has several private member variables that are used to manage client connections and handle communication:</p>
+<ul>
+<li><code>socket_</code>: An instance of the socket class used for server communication.</li>
+<li><code>selector_</code>: An instance of the selector class used to monitor multiple sockets for activity.</li>
+<li><code>clients_</code>: A vector of client objects representing the connected clients.</li>
+<li><code>sendQueue_</code>: A queue of data to be sent to the clients.</li>
+<li><code>looping_</code>: A boolean flag indicating whether the server is running or stopped. If <code>looping_</code> is true, the server is running, and if <code>looping_</code> is false, the server is stopped.</li>
+</ul>
+<p>These member variables are used internally by the server to manage client connections, handle communication, and run the game loop.</p>
 
   <br>
     
@@ -127,20 +144,20 @@ Parameters</p>
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../tool/" class="btn btn-xs btn-default pull-right">
+      <a href="../lib_client/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../tool/" class="btn btn-xs btn-link">
-        Tool
+      <a href="../lib_client/" class="btn btn-xs btn-link">
+        Library Client
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-left">
+      <a href="../ecs_system/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../rfcprotocole/" class="btn btn-xs btn-link">
-        Protocole RFC
+        Previous</a><a href="../ecs_system/" class="btn btn-xs btn-link">
+        ECS System
       </a>
     </div>
     

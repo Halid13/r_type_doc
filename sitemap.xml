@@ -2,67 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>http://127.0.0.1:8000/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/about/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/client/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://127.0.0.1:8000/client_game/</loc>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/ecs_component/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/ecs_entity/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/ecs_system/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://127.0.0.1:8000/error/</loc>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/game_server/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://127.0.0.1:8000/json_tool/</loc>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/lib_client/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/present/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://127.0.0.1:8000/readmi/</loc>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/rfcprotocole/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://127.0.0.1:8000/serialisez/</loc>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/serveur/</loc>
-         <lastmod>2023-10-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>http://127.0.0.1:8000/tool/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://127.0.0.1:8000/toolreference/</loc>
-         <lastmod>2023-10-16</lastmod>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://127.0.0.1:8000/udp_client/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://127.0.0.1:8000/windows/</loc>
+         <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

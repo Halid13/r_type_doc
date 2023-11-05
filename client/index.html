@@ -60,12 +60,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../ecs_component/" class="btn btn-xs btn-default pull-right">
+      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../ecs_component/" class="btn btn-xs btn-link">
-        ECS Component
+      <a href="../rfcprotocole/" class="btn btn-xs btn-link">
+        Protocole RFC
       </a>
     </div>
     
@@ -84,17 +84,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="class-clientenet">Class ClientENet</h1>
 <p>The ClientENet class is responsible for creating and managing an ENet client using the ENet library for network communication.</p>
 <h2 id="methods">Methods</h2>
-<ul>
-<li>ClientENet()</li>
-</ul>
+<h3 id="clientenet">ClientENet()</h3>
 <p>The constructor of the ClientENet class initializes the ENet library by calling the enet_initialize() function. If initialization fails, an error message is printed.</p>
-<ul>
-<li>~ClientENet()</li>
-</ul>
+<h3 id="clientenet_1">~ClientENet()</h3>
 <p>The destructor of the ClientENet class disconnects from the server by calling the Disconnect() method and releases the resources used by the ENet library by calling the enet_deinitialize() function.</p>
-<ul>
-<li>Connect(const char* serverAddress, int port)</li>
-</ul>
+<h3 id="connectconst-char-serveraddress-int-port">Connect(const char* serverAddress, int port)</h3>
 <p>The Connect method connects the client to the server. It takes a serverAddress parameter as a string representing the server's IP address and a port parameter as an integer representing the server's port number.</p>
 <p>The method performs the following operations:</p>
 <pre><code>If the client is already connected, it disconnects first by calling the Disconnect() method.
@@ -104,17 +98,11 @@ If the host creation fails, an error message is printed, and the method returns 
 Connects to the server using the enet_host_connect() function.
 If the connection to the server is successful, the method waits for an event using the enet_host_service() function. If a connection event is received within 5 seconds, a success message is printed, and the method returns true. Otherwise, a failure message is printed, and the method returns false.
 </code></pre>
-<ul>
-<li>Disconnect()</li>
-</ul>
+<h3 id="disconnect">Disconnect()</h3>
 <p>The Disconnect method disconnects the client from the server. It resets the peer using the enet_peer_reset() function, flushes the host using the enet_host_flush() function, destroys the host using the enet_host_destroy() function, and sets the client and peer pointers to null. A disconnection message is printed.</p>
-<ul>
-<li>IsConnected()</li>
-</ul>
+<h3 id="isconnected">IsConnected()</h3>
 <p>The IsConnected method checks if the client is connected to the server. It returns true if both the client and peer pointers are not null; otherwise, it returns false.</p>
-<ul>
-<li>SendData(const void* data, size_t dataSize)</li>
-</ul>
+<h3 id="senddataconst-void-data-size_t-datasize">SendData(const void* data, size_t dataSize)</h3>
 <p>The SendData method sends data to the server. It takes a data parameter as a pointer to the data to be sent and a dataSize parameter as the size of the data.</p>
 <p>The method performs the following operations:</p>
 <pre><code>Checks if the client is connected.
@@ -122,9 +110,7 @@ Creates an ENet packet using the enet_packet_create() function with the data, da
 Sends the packet to the peer using the enet_peer_send() function.
 Flushes the host using the enet_host_flush() function.
 </code></pre>
-<ul>
-<li>Update()</li>
-</ul>
+<h3 id="update">Update()</h3>
 <p>The Update method updates the client by handling incoming network events. It checks if the client is connected and then enters a while loop to process events using the enet_host_service() function.</p>
 <p>The method performs the following operations:</p>
 <pre><code>Checks if the client is connected.
@@ -133,9 +119,7 @@ Processes the event based on its type:
     ENET_EVENT_TYPE_RECEIVE: Handles received data by destroying the packet.
     ENET_EVENT_TYPE_DISCONNECT: Handles disconnection by calling the Disconnect() method.
 </code></pre>
-<ul>
-<li>main() function</li>
-</ul>
+<h3 id="main-function">main() function</h3>
 <p>The main function is the entry point of the program. It creates an instance of the ClientENet class and a Window object. It retrieves the server address and port from the command-line arguments. If the client successfully connects to the server, it sends data to the server, runs the window, and enters a loop to update the client while it is connected. If the connection fails, the client is disconnected.</p>
 <p>Please note that to use this code, you need to include the "Client.hpp" header file and the ENet library using #include <enet/enet.h>. Also, make sure you have the ENet library installed and properly configured.</p>
 
@@ -150,12 +134,12 @@ Processes the event based on its type:
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../ecs_component/" class="btn btn-xs btn-default pull-right">
+      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../ecs_component/" class="btn btn-xs btn-link">
-        ECS Component
+      <a href="../rfcprotocole/" class="btn btn-xs btn-link">
+        Protocole RFC
       </a>
     </div>
     

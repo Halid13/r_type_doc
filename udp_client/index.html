@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/udp_client/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>UDP Client - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "UdpClient Documentation", url: "#_top", children: [
+              {title: "Constructors", url: "#constructors" },
+              {title: "Public Methods", url: "#public-methods" },
+              {title: "Example Usage", url: "#example-usage" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../windows/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../windows/" class="btn btn-xs btn-link">
+        Windows Socket
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../client_game/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../client_game/" class="btn btn-xs btn-link">
+        Game Client
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="udpclient-documentation">UdpClient Documentation</h1>
+<p><strong><em>Description</em></strong></p>
+<p>The UdpClient class is a part of the R-Type project. It represents a UDP client that communicates with a server using sockets. The class provides methods for initializing the client, sending and receiving data, and managing the game loop.</p>
+<ul>
+<li>Header File</li>
+</ul>
+<pre><code class="language-cpp">#include &quot;../../include/Client/UdpClient.hpp&quot;
+</code></pre>
+<h2 id="constructors">Constructors</h2>
+<h3 id="udpclientaddress-serveraddress-addressport-clientport">UdpClient(Address serverAddress, Address::Port clientPort)</h3>
+<p>Constructor for the UdpClient class. It initializes the UDP client with the specified server address and client port.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>serverAddress</code>: The address of the server to connect to.</li>
+<li><code>clientPort</code>: The port that the client will use to communicate with the server.</li>
+</ul>
+<h3 id="udpclientaddressport-clientport">UdpClient(Address::Port clientPort)</h3>
+<p>Constructor for the UdpClient class. It initializes the UDP client with the specified client port. The server address will be set to 0.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>clientPort</code>: The port that the client will use to communicate with the server.</li>
+</ul>
+<h2 id="public-methods">Public Methods</h2>
+<h3 id="void-stop-noexcept">void stop() noexcept</h3>
+<p>Stops the execution of the UDP client by setting the looping variable to false.</p>
+<h3 id="void-reset-noexcept">void reset() noexcept</h3>
+<p>Resets the UDP client by setting the looping variable to true.</p>
+<h3 id="void-run">void run()</h3>
+<p>Runs the UDP client by joining the game and network threads.</p>
+<h3 id="void-communicate-noexcept">void communicate() noexcept</h3>
+<p>Waits for data to be received or sent and calls the appropriate functions accordingly.</p>
+<h3 id="void-gameloop-noexcept">void gameLoop() noexcept</h3>
+<p>Runs the game loop. When the user presses the escape key, it sends a CLOSE_VALUE to the server.</p>
+<h3 id="void-receive">void receive()</h3>
+<p>Receives data from the socket and handles it.</p>
+<h3 id="void-send">void send()</h3>
+<p>Sends data if there is any in the dataToSend queue.</p>
+<h3 id="rawdata-getdatafromqueue-noexcept">RawData getDataFromQueue() noexcept</h3>
+<p>Returns the first element of the dataToSend queue and removes it from the queue.</p>
+<h3 id="void-handledatareceivedinfos-infos-noexcept">void handleData(ReceivedInfos infos) noexcept</h3>
+<p>Handles the received data by parsing it and pushing GamePacket objects into the dataReceived queue.</p>
+<h3 id="void-checkserverconnection-noexcept">void checkServerConnection() noexcept</h3>
+<p>Checks if the server is still connected to the client.</p>
+<h2 id="example-usage">Example Usage</h2>
+<pre><code class="language-cpp">#include &quot;../../include/Client/UdpClient.hpp&quot;
+
+int main()
+{
+    // Create a UDP client with server address and client port
+    Address serverAddress(&quot;127.0.0.1&quot;, 12345);
+    Address::Port clientPort = 54321;
+    UdpClient client(serverAddress, clientPort);
+
+    // Run the UDP client
+    client.run();
+
+    return 0;
+}
+</code></pre>
+<p>Note: The above example assumes that the necessary header files and libraries are included and linked properly.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../windows/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../windows/" class="btn btn-xs btn-link">
+        Windows Socket
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../client_game/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../client_game/" class="btn btn-xs btn-link">
+        Game Client
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

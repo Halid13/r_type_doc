@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="http://127.0.0.1:8000/about/">
+    <link rel="canonical" href="http://127.0.0.1:8000/json_tool/">
     <link rel="shortcut icon" href="../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>About - My R-Type</title>
+    <title>Json Tools - My R-Type</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -32,8 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "About Us", url: "#_top", children: [
-              {title: "Contributeurs", url: "#contributeurs" },
+          {title: "JsonTools Documentation", url: "#_top", children: [
+              {title: "Header File", url: "#header-file" },
+              {title: "Public Methods", url: "#public-methods" },
           ]},
         ];
 
@@ -60,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href=".." class="btn btn-xs btn-default pull-right">
+      <a href="../readmi/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href=".." class="btn btn-xs btn-link">
-        Index
+      <a href="../readmi/" class="btn btn-xs btn-link">
+        Readme
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-left">
+      <a href="../serialisez/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../rfcprotocole/" class="btn btn-xs btn-link">
-        Protocole RFC
+        Previous</a><a href="../serialisez/" class="btn btn-xs btn-link">
+        Serializer
       </a>
     </div>
     
@@ -81,17 +82,40 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="about-us">About Us</h1>
-<p>We are third-year students at EPITECH Cotonou. We are programmers and developers. It's our passion and devotion that motivates us to give our best.</p>
-<h2 id="contributeurs">Contributeurs</h2>
+    <h1 id="jsontools-documentation">JsonTools Documentation</h1>
+<p><strong><em>Description</em></strong></p>
+<p>The JsonTools class provides methods for working with JSON files and objects. It includes a method for reading a JSON file and returning the JSON object.</p>
+<h2 id="header-file">Header File</h2>
+<pre><code class="language-cpp">#include &quot;../../include/Json/JsonTools.hpp&quot;
+</code></pre>
+<h2 id="public-methods">Public Methods</h2>
+<p><strong>json getPatternsFromFile()</strong></p>
+<p>Reads a JSON file and returns the JSON object.</p>
+<p><strong>Parameters:</strong></p>
 <ul>
-<li>Leobasthene LIMA : (<a href="https://github.com/Uozak218">GitHub</a> | <a href="https://www.linkedin.com/in/leobasthene-lima-66b644239?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app">LinkedIn</a>)</li>
-<li>Deo-gratias PATINVOH : (<a href="https://github.com/Deo-Cell">GitHub</a> | <a href="https://www.linkedin.com/in/deo-gratias-patinvoh-975554238?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=ios_app">LinkedIn</a>)</li>
-<li>Ishola AREMOU : (<a href="https://github.com/Isholaaremou">GitHub</a>)</li>
-<li>Jaurio DANSOU : (<a href="https://github.com/djaurio">GitHub</a>)</li>
-<li>Mohamed ONIFADE : (<a href="https://github.com/Halid13">GitHub</a> | <a href="https://www.linkedin.com/in/mohamed-onifade-97917323b/">LinkedIn</a>)</li>
-<li>Zaidane KODJOGBE : (<a href="https://github.com/Zaidane22">GitHub</a> | <a href="http://linkedin.com/in/zaïdane-kodjogbe-288a25252">LinkedIn</a>)</li>
+<li>None</li>
 </ul>
+<p><strong>Return Value:</strong></p>
+<ul>
+<li>A JSON object representing the contents of the file.</li>
+</ul>
+<h3 id="example-usage">Example Usage</h3>
+<pre><code class="language-cpp">#include &quot;../../include/Json/JsonTools.hpp&quot;
+
+int main()
+{
+    JsonTools jsonTools;
+
+    // Read a JSON file and get the JSON object
+    json patterns = jsonTools.getPatternsFromFile();
+
+    // Print the JSON object
+    std::cout &lt;&lt; patterns.dump(4) &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+<p>Note: The above example assumes that the necessary header files and libraries are included and linked properly, and that the JSON file exists at the specified path.</p>
 
   <br>
     
@@ -104,20 +128,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href=".." class="btn btn-xs btn-default pull-right">
+      <a href="../readmi/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href=".." class="btn btn-xs btn-link">
-        Index
+      <a href="../readmi/" class="btn btn-xs btn-link">
+        Readme
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../rfcprotocole/" class="btn btn-xs btn-default pull-left">
+      <a href="../serialisez/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../rfcprotocole/" class="btn btn-xs btn-link">
-        Protocole RFC
+        Previous</a><a href="../serialisez/" class="btn btn-xs btn-link">
+        Serializer
       </a>
     </div>
     

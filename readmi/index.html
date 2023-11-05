@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/readmi/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Readme - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "About the project", url: "#_top", children: [
+          ]},
+          {title: "Build tool", url: "#build-tool", children: [
+          ]},
+          {title: "Installation", url: "#installation", children: [
+          ]},
+          {title: "Graphique", url: "#graphique", children: [
+          ]},
+          {title: "Network", url: "#network", children: [
+          ]},
+          {title: "How to play", url: "#how-to-play", children: [
+          ]},
+          {title: "UML", url: "#uml", children: [
+          ]},
+          {title: "Game improvements", url: "#game-improvements", children: [
+          ]},
+          {title: "Licence", url: "#licence", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../json_tool/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../json_tool/" class="btn btn-xs btn-link">
+        Json Tools
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/fr/6/64/R-Type_Logo.png" alt="Depviz" title="Depviz" height="200px">
+</h1>
+
+<h2 id="about-the-project">About the project</h2>
+<p>This project aims to recreate the cross-platform video game R-Type with an online mutiplayer mode.
+It required the implementation of a multithreaded server and a graphical client, using an engine of our own design.</p>
+<ul>
+<li><code>Tools:</code></li>
+<li>Project made in <code>C++</code> version 20</li>
+<li>use of the <code>SFML</code> graphical library to display game elements</li>
+<li>Compiled with <code>CMake</code>, minimum version required : <code>3.17</code></li>
+<li><code>GITHUB Actions</code> for automatique tests</li>
+<li><code>MK Docs</code> for documentation</li>
+<li>
+<p>A <code>Script</code> is provided to compile, run and test the project</p>
+</li>
+<li>
+<p>Some of the features we implemented:</p>
+</li>
+<li>A <code>multithreaded</code> server, to handle communication and game logic at the same time</li>
+<li>A generic <code>Entity Component System</code> architecture and game engine</li>
+<li>A graphical client, to display the game and handle user input</li>
+<li>A client-server communication protocol</li>
+<li>A network building with <code>ENet</code> for the connection</li>
+</ul>
+<h2 id="build-tool">Build tool</h2>
+<p>The project must be built using a CMake and dependencies must be handled using conan.</p>
+<h2 id="installation">Installation</h2>
+<p><strong>Tools:</strong></p>
+<p>Ensure that you have cmake and enet installed in your pc</p>
+<p><strong>Linux:</strong></p>
+<pre><code class="language-sh">./run.sh
+</code></pre>
+<h2 id="graphique">Graphique</h2>
+<p>We used SFML for client-side displays and all rendering was done using SFML.</p>
+<h2 id="network">Network</h2>
+<p>The network library is the package that enables the various clients to communicate with the server and play with their friends.</p>
+<h2 id="how-to-play">How to play</h2>
+<p>Once the game is launched, we enter the server's IP address and the port it is connected to. Then, the game can begin.</p>
+<ul>
+<li>To move the player <code>upwards</code>, we use the directional key: <code>up</code>.</li>
+<li>To move the player <code>downwards</code>, we use the directional key: <code>down</code>.</li>
+<li>To move the player to the <code>right</code>, we use the directional key: <code>right</code>.</li>
+<li>To move the player to the <code>left</code>, we use the directional key: <code>left</code>.</li>
+<li>To <code>shoot</code>, we use the key: <code>space</code>.</li>
+<li>To <code>spawn</code> enemies, we use the key: <code>enter</code>.</li>
+</ul>
+<h2 id="uml">UML</h2>
+<ul>
+<li><strong>Serveur:</strong>
+<a href="https://draft.io/g85bjfcfgg4ja6kzunezzf76utkzbqgkx2a6fa9j95zp">Architecture</a></li>
+<li><strong>Client:</strong>
+<a href="https://draft.io/g85bjfcfgg4ja6kzunezzf76utkzbqgkx2a6fa9j95zp">Architecture</a></li>
+<li><strong>Entity:</strong>
+<a href="https://draft.io/g85bjfcfgg4ja6kzunezzf76utkzbqgkx2a6fa9j95zp">Architecture</a></li>
+<li><strong>Components:</strong>
+<a href="https://draft.io/g85bjfcfgg4ja6kzunezzf76utkzbqgkx2a6fa9j95zp">Architecture</a></li>
+<li><strong>System:</strong>
+<a href="https://draft.io/g85bjfcfgg4ja6kzunezzf76utkzbqgkx2a6fa9j95zp">Architecture</a></li>
+</ul>
+<h2 id="game-improvements">Game improvements</h2>
+<ul>
+<li>Want to create your own custom levels ? Check out our <a href="docs/CustomLevel.md">Level's guide</a> !</li>
+</ul>
+<h2 id="licence">Licence</h2>
+<p><strong>MTI Licence</strong>
+Copyright (c) 2012-2023 Scott Chacon and others
+<a href="https://github.com/EpitechPromo2026/B-CPP-500-COT-5-1-rtype-leobasthene.lima/blob/main/docs/LICENCE.md">Licence</a></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../json_tool/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../json_tool/" class="btn btn-xs btn-link">
+        Json Tools
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

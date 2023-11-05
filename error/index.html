@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/error/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Error Game - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Error Documentation", url: "#_top", children: [
+              {title: "Error Class", url: "#error-class" },
+              {title: "InitError Class", url: "#initerror-class" },
+              {title: "NetworkError Class", url: "#networkerror-class" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../serialisez/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../serialisez/" class="btn btn-xs btn-link">
+        Serializer
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../windows/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../windows/" class="btn btn-xs btn-link">
+        Windows Socket
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="error-documentation">Error Documentation</h1>
+<h2 id="error-class">Error Class</h2>
+<h3 id="description">Description</h3>
+<p>The Error class is used to represent an error condition in the program. It provides a mechanism for storing and retrieving an error message.</p>
+<h3 id="header-file">Header File</h3>
+<pre><code class="language-cpp">#include &quot;../../include/Error/Error.hpp&quot;
+</code></pre>
+<h3 id="constructors">Constructors</h3>
+<h4 id="errorstdstring-message-noexcept">Error(std::string message) noexcept</h4>
+<p>Constructs an Error object with the specified error message.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>message</code>: The error message to be displayed.</li>
+</ul>
+<h3 id="public-methods">Public Methods</h3>
+<h4 id="const-char-what-const-noexcept">const char* what() const noexcept</h4>
+<p>Returns a pointer to a C-style string that contains the error message.</p>
+<h3 id="example-usage">Example Usage</h3>
+<pre><code class="language-cpp">#include &quot;../../include/Error/Error.hpp&quot;
+
+int main()
+{
+    try
+    {
+        throw Error(&quot;An error occurred&quot;);
+    }
+    catch (const Error&amp; e)
+    {
+        std::cout &lt;&lt; &quot;Error message: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+</code></pre>
+<h2 id="initerror-class">InitError Class</h2>
+<h3 id="description_1">Description</h3>
+<p>The InitError class is a derived class of the Error class. It represents an error condition that occurs during initialization.</p>
+<h3 id="constructors_1">Constructors</h3>
+<h4 id="initerrorstdstring-message-noexcept">InitError(std::string message) noexcept</h4>
+<p>Constructs an InitError object with the specified error message.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>message</code>: The error message to be displayed.</li>
+</ul>
+<h3 id="example-usage_1">Example Usage</h3>
+<pre><code class="language-cpp">#include &quot;../../include/Error/Error.hpp&quot;
+
+int main()
+{
+    try
+    {
+        throw InitError(&quot;Initialization failed&quot;);
+    }
+    catch (const Error&amp; e)
+    {
+        std::cout &lt;&lt; &quot;Error message: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+</code></pre>
+<h2 id="networkerror-class">NetworkError Class</h2>
+<h3 id="description_2">Description</h3>
+<p>The NetworkError class is a derived class of the Error class. It represents an error condition that occurs during network operations.</p>
+<h3 id="constructors_2">Constructors</h3>
+<h4 id="networkerrorstdstring-message-noexcept">NetworkError(std::string message) noexcept</h4>
+<p>Constructs a NetworkError object with the specified error message.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>message</code>: The error message to be displayed.</li>
+</ul>
+<h3 id="example-usage_2">Example Usage</h3>
+<pre><code class="language-cpp">#include &quot;../../include/Error/Error.hpp&quot;
+
+int main()
+{
+    try
+    {
+        throw NetworkError(&quot;Network error occurred&quot;);
+    }
+    catch (const Error&amp; e)
+    {
+        std::cout &lt;&lt; &quot;Error message: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+</code></pre>
+<p>Note: The above examples assume that the necessary header files and libraries are included and linked properly.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../serialisez/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../serialisez/" class="btn btn-xs btn-link">
+        Serializer
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../windows/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../windows/" class="btn btn-xs btn-link">
+        Windows Socket
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

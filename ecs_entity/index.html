@@ -32,17 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Documentation for Entity", url: "#_top", children: [
-              {title: "Description", url: "#description" },
-              {title: "Public Members", url: "#public-members" },
-              {title: "Protected Members", url: "#protected-members" },
-              {title: "Private Members", url: "#private-members" },
+          {title: "Entity", url: "#_top", children: [
           ]},
-          {title: "Documentation for EntityManager", url: "#documentation-for-entitymanager", children: [
-              {title: "Description", url: "#description_1" },
-              {title: "Public Members", url: "#public-members_1" },
-              {title: "Protected Members", url: "#protected-members_1" },
-              {title: "Private Members", url: "#private-members_1" },
+          {title: "EntityManager", url: "#entitymanager", children: [
           ]},
         ];
 
@@ -90,10 +82,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="documentation-for-entity">Documentation for Entity</h1>
-<h2 id="description">Description</h2>
+    <h1 id="entity">Entity</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>Entity</code> class represents an entity in a game or simulation. It is a container for components that define the properties and behaviors of the entity. Each entity has a unique identifier.</p>
-<h2 id="public-members">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>Entity(size_t id) noexcept</code>: Constructor that creates an entity with the specified identifier.</li>
 <li><code>~Entity() noexcept</code>: Destructor.</li>
@@ -104,18 +96,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><code>template &lt;typename T&gt; int EntityhaveComponent() noexcept</code>: Checks if the entity has a component of type <code>T</code>.</li>
 <li><code>template &lt;typename T, typename... Args&gt; bool hasComponents() noexcept</code>: Checks if the entity has components of types <code>T</code> and <code>Args...</code>.</li>
 </ul>
-<h2 id="protected-members">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>std::vector&lt;std::shared_ptr&lt;IComponent&gt;&gt; _component</code>: A vector of shared pointers to the components associated with the entity.</li>
 <li><code>size_t _id</code>: The identifier of the entity.</li>
 </ul>
 <hr />
-<h1 id="documentation-for-entitymanager">Documentation for EntityManager</h1>
-<h2 id="description_1">Description</h2>
+<h1 id="entitymanager">EntityManager</h1>
+<p><strong><em>Description</em></strong></p>
 <p>The <code>EntityManager</code> class manages a collection of entities. It provides functionality for creating, accessing, and removing entities.</p>
-<h2 id="public-members_1">Public Members</h2>
+<p><strong><em>Public Members</em></strong></p>
 <ul>
 <li><code>EntityManager() noexcept</code>: Default constructor.</li>
 <li><code>~EntityManager() noexcept</code>: Destructor.</li>
@@ -124,9 +114,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><code>std::shared_ptr&lt;Entity&gt; findEntity(size_t id) noexcept</code>: Finds an entity with the specified identifier and returns a shared pointer to it.</li>
 <li><code>int eraseEntity(size_t id) noexcept</code>: Removes an entity with the specified identifier from the entity manager.</li>
 </ul>
-<h2 id="protected-members_1">Protected Members</h2>
-<p>None.</p>
-<h2 id="private-members_1">Private Members</h2>
+<p><strong><em>Private Members</em></strong></p>
 <ul>
 <li><code>std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt; _entity</code>: A vector of shared pointers to the entities managed by the entity manager.</li>
 </ul>

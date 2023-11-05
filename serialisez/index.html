@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/serialisez/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Serializer - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Serializer Documentation", url: "#_top", children: [
+              {title: "Header File", url: "#header-file" },
+              {title: "Public Methods", url: "#public-methods" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../json_tool/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../json_tool/" class="btn btn-xs btn-link">
+        Json Tools
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../error/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../error/" class="btn btn-xs btn-link">
+        Error Game
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="serializer-documentation">Serializer Documentation</h1>
+<p><strong><em>Description</em></strong></p>
+<p>The Serializer class provides methods for serializing data into a vector of bytes. It includes methods for serializing entity components, music components, and key codes.</p>
+<h2 id="header-file">Header File</h2>
+<pre><code class="language-cpp">#include &quot;../../include/Serializer/Serializer.hpp&quot;
+</code></pre>
+<h2 id="public-methods">Public Methods</h2>
+<h3 id="rawdata-serializestdunique_ptrentity-const-entity-stdvectorplayer-players_-noexcept">RawData serialize(std::unique_ptr\&lt;Entity&gt; const&amp; entity, std::vector\&lt;Player&gt; players_) noexcept</h3>
+<p>Serializes the position and drawable components of an entity into a vector of bytes.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>entity</code>: A unique pointer to the entity to be serialized.</li>
+<li><code>players_</code>: A vector of players.</li>
+</ul>
+<p><strong>Return Value:</strong></p>
+<ul>
+<li>A vector of uint8_t representing the serialized data.</li>
+</ul>
+<h3 id="rawdata-serializemusicstdunique_ptrentity-const-entity-noexcept">RawData serializeMusic(std::unique_ptr\&lt;Entity&gt; const&amp; entity) noexcept</h3>
+<p>Serializes the sound component of an entity into a vector of bytes.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>entity</code>: A unique pointer to the entity to be serialized.</li>
+</ul>
+<p><strong>Return Value:</strong></p>
+<ul>
+<li>A vector of uint8_t representing the serialized data.</li>
+</ul>
+<h3 id="rawdata-serializeint-keycode">RawData serialize(int keyCode)</h3>
+<p>Serializes an integer into a vector of bytes.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>keyCode</code>: The key code to be serialized.</li>
+</ul>
+<p><strong>Return Value:</strong></p>
+<ul>
+<li>A vector of uint8_t representing the serialized data.</li>
+</ul>
+<h3 id="example-usage">Example Usage</h3>
+<pre><code class="language-cpp">#include &quot;../../include/Serializer/Serializer.hpp&quot;
+
+int main()
+{
+    Serializer serializer;
+    std::unique_ptr&lt;Entity&gt; entity = std::make_unique&lt;Entity&gt;();
+
+    // Serialize entity components
+    RawData serializedData = serializer.serialize(entity, players_);
+
+    // Serialize music component
+    RawData musicData = serializer.serializeMusic(entity);
+
+    // Serialize key code
+    RawData keyCodeData = serializer.serialize(65);
+
+    return 0;
+}
+</code></pre>
+<p>Note: The above example assumes that the necessary header files and libraries are included and linked properly, and that the <code>players_</code> vector and the <code>Entity</code> object are properly defined and initialized.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../json_tool/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../json_tool/" class="btn btn-xs btn-link">
+        Json Tools
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../error/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../error/" class="btn btn-xs btn-link">
+        Error Game
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/windows/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Windows Socket - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "WindowsSocket Documentation", url: "#_top", children: [
+              {title: "WindowsSocket(Address::Port port)", url: "#windowssocketaddressport-port" },
+              {title: "~WindowsSocket() noexcept", url: "#windowssocket-noexcept" },
+              {title: "Public Member Functions", url: "#public-member-functions" },
+              {title: "Static Member Functions", url: "#static-member-functions" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../error/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../error/" class="btn btn-xs btn-link">
+        Error Game
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../udp_client/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../udp_client/" class="btn btn-xs btn-link">
+        UDP Client
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="windowssocket-documentation">WindowsSocket Documentation</h1>
+<p>The <code>WindowsSocket</code> class provides an implementation of a UDP socket that is compatible with Windows operating systems. It allows for sending and receiving data over UDP.</p>
+<p><strong><em>Constructor</em></strong></p>
+<h3 id="windowssocketaddressport-port"><code>WindowsSocket(Address::Port port)</code></h3>
+<p>This constructor initializes a UDP socket and binds it to the specified port. It also reserves memory for the received buffer.</p>
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li><code>port</code> (Address::Port): The port to bind the socket to.</li>
+</ul>
+<h4 id="exceptions">Exceptions</h4>
+<ul>
+<li><code>InitError</code>: Thrown if the initialization of the socket fails.</li>
+</ul>
+<p><strong><em>Destructor</em></strong></p>
+<h3 id="windowssocket-noexcept"><code>~WindowsSocket() noexcept</code></h3>
+<p>The destructor for the <code>WindowsSocket</code> class. It cleans up the socket resources and closes the socket.</p>
+<h2 id="public-member-functions">Public Member Functions</h2>
+<h3 id="isocketfd-getsocketfd-const-noexcept"><code>ISocket::Fd getSocketFd() const noexcept</code></h3>
+<p>This function returns the socket file descriptor.</p>
+<h4 id="return-value">Return Value</h4>
+<ul>
+<li><code>ISocket::Fd</code>: The socket file descriptor.</li>
+</ul>
+<h3 id="address-getaddress-const-noexcept"><code>Address getAddress() const noexcept</code></h3>
+<p>This function retrieves the local address to which the socket is bound.</p>
+<h4 id="return-value_1">Return Value</h4>
+<ul>
+<li><code>Address</code>: The local address.</li>
+</ul>
+<h3 id="void-sendconst-void-data-int-data_size-address-destaddr-const"><code>void send(const void* data, int data_size, Address destAddr) const</code></h3>
+<p>This function sends data to a specified destination address.</p>
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li><code>data</code> (const void*): A pointer to the data to be sent.</li>
+<li><code>data_size</code> (int): The size of the data to be sent.</li>
+<li><code>destAddr</code> (Address): The address of the destination.</li>
+</ul>
+<h4 id="exceptions_1">Exceptions</h4>
+<ul>
+<li><code>NetworkError</code>: Thrown if an error occurs while sending data.</li>
+</ul>
+<h3 id="receivedinfos-receive"><code>ReceivedInfos receive()</code></h3>
+<p>This function receives data from a client and returns information about the received data.</p>
+<h4 id="return-value_2">Return Value</h4>
+<ul>
+<li><code>ReceivedInfos</code>: A struct containing the sender's address and the received data.</li>
+</ul>
+<h4 id="exceptions_2">Exceptions</h4>
+<ul>
+<li><code>NetworkError</code>: Thrown if an error occurs while receiving data.</li>
+</ul>
+<h2 id="static-member-functions">Static Member Functions</h2>
+<h3 id="address-winaddresstoaddresssockaddr_in-address-noexcept"><code>Address winAddressToAddress(SOCKADDR_IN address) noexcept</code></h3>
+<p>This static function converts a Windows socket address to a cross-platform address.</p>
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li><code>address</code> (SOCKADDR_IN): The Windows socket address to convert.</li>
+</ul>
+<h4 id="return-value_3">Return Value</h4>
+<ul>
+<li><code>Address</code>: The converted cross-platform address.</li>
+</ul>
+<h3 id="sockaddr_in-addresstowinaddressaddress-address-noexcept"><code>SOCKADDR_IN addressToWinAddress(Address address) noexcept</code></h3>
+<p>This static function converts an <code>Address</code> object to a Windows <code>SOCKADDR_IN</code> object.</p>
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li><code>address</code> (Address): The address to convert.</li>
+</ul>
+<h4 id="return-value_4">Return Value</h4>
+<ul>
+<li><code>SOCKADDR_IN</code>: The converted Windows socket address.</li>
+</ul>
+<hr />
+<p><em>Note: The code provided is specific to Windows platforms and utilizes the Windows Sockets API (WSA). It may not be compatible with other operating systems.</em></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../error/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../error/" class="btn btn-xs btn-link">
+        Error Game
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../udp_client/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../udp_client/" class="btn btn-xs btn-link">
+        UDP Client
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

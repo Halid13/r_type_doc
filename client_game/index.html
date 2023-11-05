@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://127.0.0.1:8000/client_game/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Game Client - My R-Type</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Game Class", url: "#_top", children: [
+          ]},
+          {title: "GamePacket Class", url: "#gamepacket-class", children: [
+          ]},
+          {title: "Lib Class", url: "#lib-class", children: [
+          ]},
+          {title: "EntityManager Class", url: "#entitymanager-class", children: [
+              {title: "Entity Class", url: "#entity-class" },
+          ]},
+          {title: "Classe Game", url: "#classe-game", children: [
+          ]},
+          {title: "Classe GamePacket", url: "#classe-gamepacket", children: [
+          ]},
+          {title: "Classe Lib", url: "#classe-lib", children: [
+          ]},
+          {title: "Classe EntityManager", url: "#classe-entitymanager", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../udp_client/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../udp_client/" class="btn btn-xs btn-link">
+        UDP Client
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../lib_client/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../lib_client/" class="btn btn-xs btn-link">
+        Library Client
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>Here is the documentation generated from the provided code:</p>
+<h3 id="game-class">Game Class</h3>
+<p>The <code>Game</code> class represents the game itself and manages the main logic of the game.</p>
+<p><strong><em>Methods</em></strong></p>
+<ul>
+<li>Constructor</li>
+</ul>
+<pre><code class="language-cpp">Game::Game(std::queue&lt;GamePacket&gt;&amp; packets, std::mutex&amp; mutex)
+</code></pre>
+<p>This constructor initializes the <code>Game</code> class with a queue of received packets and a mutex to protect the queue.</p>
+<ul>
+<li><code>packets</code>: The queue of received packets.</li>
+<li>
+<p><code>mutex</code>: The mutex used to protect the queue.</p>
+</li>
+<li>
+<p>run Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">void Game::run() noexcept
+</code></pre>
+<p>This method runs the game. It clears the window, deserializes the received packets, and draws the entities.</p>
+<ul>
+<li>getLib Method</li>
+</ul>
+<pre><code class="language-cpp">Lib&amp; Game::getLib() noexcept
+</code></pre>
+<p>This method returns a reference to the <code>Lib</code> object stored in the <code>Game</code> object.</p>
+<ul>
+<li>updateOrCreateEntity Method</li>
+</ul>
+<pre><code class="language-cpp">void Game::updateOrCreateEntity(GamePacket packet) noexcept
+</code></pre>
+<p>This method deserializes a packet and creates an entity if it does not exist or updates it if it already exists.</p>
+<ul>
+<li>
+<p><code>packet</code>: The packet received from the server.</p>
+</li>
+<li>
+<p>createSound Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">int Game::createSound(const std::string_view&amp; path) noexcept
+</code></pre>
+<p>This method creates a new entity, adds a sound component to it, and returns the entity's identifier.</p>
+<ul>
+<li>
+<p><code>path</code>: The path to the sound file.</p>
+</li>
+<li>
+<p>getManager Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">EntityManager&amp; Game::getManager() noexcept
+</code></pre>
+<p>This method returns a reference to our entity manager.</p>
+<ul>
+<li>Attributes</li>
+</ul>
+<p>The following attributes are declared in the <code>Game</code> class:</p>
+<ul>
+<li><code>dataReceived_</code>: The queue of received packets.</li>
+<li><code>mutexForPacket_</code>: The mutex used to protect the queue.</li>
+<li><code>drawableSystem_</code>: The system responsible for rendering entities.</li>
+<li><code>destroyableSystem_</code>: The system responsible for entity destruction management.</li>
+<li><code>soundSystem_</code>: The system responsible for sound management.</li>
+<li><code>musicSystem_</code>: The system responsible for music management.</li>
+<li><code>lib_</code>: The <code>Lib</code> object used by the game.</li>
+<li><code>soundManager_</code>: The sound manager.</li>
+<li><code>soundPaths_</code>: The paths of sound files.</li>
+<li><code>manager_</code>: The entity manager.</li>
+</ul>
+<h3 id="gamepacket-class">GamePacket Class</h3>
+<p>The <code>GamePacket</code> class represents a game packet received from the server.</p>
+<ul>
+<li>Attributes</li>
+</ul>
+<p>The following attributes are declared in the <code>GamePacket</code> class:</p>
+<ul>
+<li><code>id</code>: The packet identifier.</li>
+<li><code>x</code>: The X position of the entity associated with the packet.</li>
+<li><code>y</code>: The Y position of the entity associated with the packet.</li>
+<li><code>offsetX</code>: The X offset of the entity associated with the packet.</li>
+<li><code>offsetY</code>: The Y offset of the entity associated with the packet.</li>
+<li><code>width</code>: The width of the entity associated with the packet.</li>
+<li><code>height</code>: The height of the entity associated with the packet.</li>
+<li><code>idSprite</code>: The texture identifier of the entity associated with the packet.</li>
+<li><code>scaleX</code>: The horizontal scale of the entity associated with the packet.</li>
+<li><code>scaleY</code>: The vertical scale of the entity associated with the packet.</li>
+<li><code>destroyed</code>: An indicator indicating whether the entity associated with the packet is destroyed.</li>
+<li><code>id_is_player</code>: An indicator indicating whether the entity associated with the packet is a player.</li>
+<li><code>life</code>: The number of lives of the player associated with the packet.</li>
+<li><code>score</code>: The score of the player associated with the packet.</li>
+</ul>
+<h3 id="lib-class">Lib Class</h3>
+<p>The <code>Lib</code> class represents a library used by the game.</p>
+<ul>
+<li>
+<p>Methods</p>
+</li>
+<li>
+<p>getWindow Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">Window&amp; Lib::getWindow() noexcept
+</code></pre>
+<p>This method returns a reference to the library's window.</p>
+<h3 id="entitymanager-class">EntityManager Class</h3>
+<p>The <code>EntityManager</code> class represents an entity manager.</p>
+<ul>
+<li>
+<p>Methods</p>
+</li>
+<li>
+<p>getEntity Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">Entity* EntityManager::getEntity(size_t id) const
+</code></pre>
+<p>This method returns a pointer to the entity corresponding to the given identifier.</p>
+<ul>
+<li>
+<p><code>id</code>: The identifier of the entity to retrieve.</p>
+</li>
+<li>
+<p>newEntity Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">Entity* EntityManager::newEntity(size_t id = 0)
+</code></pre>
+<p>This method creates a new entity with the given identifier and returns a pointer to that entity.</p>
+<ul>
+<li>
+<p><code>id</code>: The identifier of the new entity (default: 0).</p>
+</li>
+<li>
+<p>getId Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">size_t Entity::getId() const
+</code></pre>
+<p>This method returns the identifier of the entity.</p>
+<h4 id="entity-class">Entity Class</h4>
+<p>The <code>Entity</code> class represents an entity in the game.</p>
+<ul>
+<li>
+<p>Methods</p>
+</li>
+<li>
+<p>addComponent Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">template &lt;typename T&gt;
+void Entity::addComponent(T component)
+</code></pre>
+<p>This method adds a component to the entity.</p>
+<ul>
+<li>
+<p><code>component</code>: The component to add.</p>
+</li>
+<li>
+<p>getComponent Method</p>
+</li>
+</ul>
+<pre><code class="language-cpp">template &lt;typename T&gt;
+T Entity::getComponent() const
+</code></pre>
+<p>This method returns a pointer to the component of type <code>T</code> of the entity, or <code>nullptr</code> if the component does not exist.</p>
+<p>-Voici la documentation générée à partir du code fourni :</p>
+<h3 id="classe-game">Classe Game</h3>
+<p>La classe "Game" représente le jeu lui-même et gère la logique principale du jeu.</p>
+<ul>
+<li>
+<p>Méthodes</p>
+</li>
+<li>
+<p>Constructeur</p>
+</li>
+</ul>
+<pre><code class="language-cpp">Game::Game(std::queue&lt;GamePacket&gt;&amp; packets, std::mutex&amp; mutex)
+</code></pre>
+<p>Ce constructeur initialise la classe "Game" avec une file de paquets reçus et un mutex pour protéger la file.</p>
+<ul>
+<li><code>packets</code>: La file de paquets reçus.</li>
+<li>
+<p><code>mutex</code>: Le mutex utilisé pour protéger la file.</p>
+</li>
+<li>
+<p>Méthode run</p>
+</li>
+</ul>
+<pre><code class="language-cpp">void Game::run() noexcept
+</code></pre>
+<p>Cette méthode exécute le jeu. Elle efface la fenêtre, désérialise les paquets reçus et dessine les entités.</p>
+<ul>
+<li>Méthode getLib</li>
+</ul>
+<pre><code class="language-cpp">Lib&amp; Game::getLib() noexcept
+</code></pre>
+<p>Cette méthode renvoie une référence à l'objet "Lib" stocké dans l'objet "Game".</p>
+<ul>
+<li>Méthode updateOrCreateEntity</li>
+</ul>
+<pre><code class="language-cpp">void Game::updateOrCreateEntity(GamePacket packet) noexcept
+</code></pre>
+<p>Cette méthode désérialise un paquet et crée une entité si elle n'existe pas déjà, ou la met à jour si elle existe déjà.</p>
+<ul>
+<li>
+<p><code>packet</code>: Le paquet reçu du serveur.</p>
+</li>
+<li>
+<p>Méthode createSound</p>
+</li>
+</ul>
+<pre><code class="language-cpp">int Game::createSound(const std::string_view&amp; path) noexcept
+</code></pre>
+<p>Cette méthode crée une nouvelle entité, ajoute un composant sonore et renvoie l'identifiant de l'entité.</p>
+<ul>
+<li>
+<p><code>path</code>: Le chemin du fichier sonore.</p>
+</li>
+<li>
+<p>Méthode getManager</p>
+</li>
+</ul>
+<pre><code class="language-cpp">EntityManager&amp; Game::getManager() noexcept
+</code></pre>
+<p>Cette méthode renvoie une référence à notre gestionnaire d'entités.</p>
+<ul>
+<li>Attributs</li>
+</ul>
+<p>Les attributs suivants sont déclarés dans la classe "Game":</p>
+<ul>
+<li><code>dataReceived_</code>: La file de paquets reçus.</li>
+<li><code>mutexForPacket_</code>: Le mutex utilisé pour protéger la file.</li>
+<li><code>drawableSystem_</code>: Le système responsable du rendu des entités.</li>
+<li><code>destroyableSystem_</code>: Le système responsable de la gestion de destruction des entités.</li>
+<li><code>soundSystem_</code>: Le système responsable de la gestion du son.</li>
+<li><code>musicSystem_</code>: Le système responsable de la gestion de la musique.</li>
+<li><code>lib_</code>: L'objet "Lib" utilisé par le jeu.</li>
+<li><code>soundManager_</code>: Le gestionnaire de son.</li>
+<li><code>soundPaths_</code>: Les chemins des fichiers sonores.</li>
+<li><code>manager_</code>: Le gestionnaire d'entités.</li>
+</ul>
+<h3 id="classe-gamepacket">Classe GamePacket</h3>
+<p>La classe "GamePacket" représente un paquet de jeu reçu du serveur.</p>
+<ul>
+<li>Attributs</li>
+</ul>
+<p>Les attributs suivants sont déclarés dans la classe "GamePacket":</p>
+<ul>
+<li><code>id</code>: L'identifiant du paquet.</li>
+<li><code>x</code>: La position X de l'entité associée au paquet.</li>
+<li><code>y</code>: La position Y de l'entité associée au paquet.</li>
+<li><code>offsetX</code>: Le décalage X de l'entité associée au paquet.</li>
+<li><code>offsetY</code>: Le décalage Y de l'entité associée au paquet.</li>
+<li><code>width</code>: La largeur de l'entité associée au paquet.</li>
+<li><code>height</code>: La hauteur de l'entité associée au paquet.</li>
+<li><code>idSprite</code>: L'identifiant de texture de l'entité associée au paquet.</li>
+<li><code>scaleX</code>: L'échelle horizontale de l'entité associée au paquet.</li>
+<li><code>scaleY</code>: L'échelle verticale de l'entité associée au paquet.</li>
+<li><code>destroyed</code>: Un indicateur indiquant si l'entité associée au paquet est détruite.</li>
+<li><code>id_is_player</code>: Un indicateur indiquant si l'entité associée au paquet est un joueur.</li>
+<li><code>life</code>: Le nombre de vies du joueur associé au paquet.</li>
+<li><code>score</code>: Le score du joueur associé au paquet.</li>
+</ul>
+<hr />
+<h3 id="classe-lib">Classe Lib</h3>
+<p>La classe "Lib" représente une bibliothèque utilisée par le jeu.</p>
+<ul>
+<li>
+<p>Méthodes</p>
+</li>
+<li>
+<p>Méthode getWindow</p>
+</li>
+</ul>
+<pre><code class="language-cpp">Window&amp; Lib::getWindow() noexcept
+</code></pre>
+<p>Cette méthode renvoie une référence à la fenêtre de la bibliothèque.</p>
+<h3 id="classe-entitymanager">Classe EntityManager</h3>
+<p>La classe "EntityManager" représente un gestionnaire d'entités.</p>
+<ul>
+<li>
+<p>Méthodes</p>
+</li>
+<li>
+<p>Méthode getEntity</p>
+</li>
+</ul>
+<pre><code class="language-cpp">Entity* EntityManager::getEntity(size_t id) const
+</code></pre>
+<p>Cette méthode renvoie un pointeur vers l'entité correspondant à l'ident</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../udp_client/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../udp_client/" class="btn btn-xs btn-link">
+        UDP Client
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../lib_client/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../lib_client/" class="btn btn-xs btn-link">
+        Library Client
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
