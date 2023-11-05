@@ -1,0 +1,23 @@
+site_name: My R-Type
+site_url: http://127.0.0.1:8000/
+theme: windmill
+nav:
+  - Home: present.md
+  - Tools Reference: toolreference.md
+  - ENet Server: serveur.md
+  - ENet Client: client.md
+  - Protocole RFC: rfcprotocole.md
+  - About: about.md
+  - Index: index.md
+  - ECS Component: ecs_component.md
+  - ECS Entity: ecs_entity.md
+  - ECS System: ecs_system.md
+  - Game Serveur: game_server.md
+  - Library Client: lib_client.md
+  - Game Client: client_game.md
+  - UDP Client: udp_client.md
+  - Windows Socket: windows.md
+  - Error Game: error.md
+  - Serializer: serialisez.md
+  - Json Tools: json_tool.md
+  - Readme: readmi.md
